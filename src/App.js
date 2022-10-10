@@ -1,30 +1,25 @@
 
 import './App.css';
-import Navbar from './Component/Navbar';
+import Login from './Component/Login';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+import Dashboard from './Component/Dashboard';
 
 function App() {
 
-  let monTableau = [0];
-
-  const person = {
-    name : 'bob',
-    age: 20,
-  };
-
-  const Moi = {
-    ...person,
-    name:'Moi'
-  }
-
-
   return (
-   <div className="App">
-
-    <Navbar test={'pat'}/>
-   </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />}/>
+          <Route path="/Dashboard" element={<Dashboard />}>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
+
 }
-
-
 
 export default App;
