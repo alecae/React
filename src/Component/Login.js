@@ -1,54 +1,22 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import { useNavigate } from "react-router-dom";
 
 import style from "./Login.module.css";
 
 function Login() {
-  // React States
+
+  // Statut
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // User Login info
-  const database = [
-    {
-      username: "user1",
-      password: "pass1"
-    },
-    {
-      username: "user2",
-      password: "pass2"
-    }
-  ];
-
-  const errors = {
-    uname: "Mauvais identifiant",
-    pass: "Mauvais mot de pasee"
-  };
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     //Prevent page reload
     event.preventDefault();
-
-    var { uname, pass } = document.forms[0];
-
-    // Find user login info
-    const userData = database.find((user) => user.username === uname.value);
-
-    // Compare user info
-    if (userData) {
-      if (userData.password !== pass.value) {
-        // Invalid password
-        setErrorMessages({ name: "pass", message: errors.pass });
-      } else {
-        setIsSubmitted(true);
-      }
-    } else {
-      // Username not found
-      setErrorMessages({ name: "uname", message: errors.uname });
-    }
+    navigate("/Dashboard")
   };
 
-  // Generate JSX code for error message
+  //   erreur message
   const renderErrorMessage = (name) =>
     name === errorMessages.name && (
       <div className="erreur">{errorMessages.message}</div>
@@ -79,10 +47,12 @@ function Login() {
     <div className={style.form}>
       <div className={style.loginform}>
         <div className={style.title}>Connexion</div>
-        {isSubmitted ? <div>Vous êtes bien connecter</div> : renderForm}
+        {isSubmitted ? <div>Vous êtes bien connecté</div> : renderForm}
       </div>
     </div>
   );
+
+
 }
 
 
