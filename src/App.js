@@ -5,6 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import Dashboard from './Component/Dashboard';
+import "./App.css"
 
 function App() {
 
