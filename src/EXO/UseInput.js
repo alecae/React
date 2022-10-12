@@ -19,12 +19,14 @@ const useInput = (validateValue) => {
  
 //Récupère la valeur de l'input
   const valueChangeHandler = (event) => { 
-    setEnteredValue(event.target.value); 
+    setEnteredValue(event.target.value);
+    console.log(enteredValue)
   }; 
 
 //Sert a changé le useState quand on est sur un input
   const inputBlurHandler = (event) => { 
     setIsTouched(true); 
+    console.log(isTouched)
   }; 
 
 //réinitialiser les valeurs de l'input
