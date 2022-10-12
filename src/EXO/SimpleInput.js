@@ -1,72 +1,176 @@
-import {  useState, useEffect } from 'react'
+import { useState } from 'react';
+import useInput from '../hooks/use-input';
+
+
+
 
 const SimpleInput = (props) => {
-  const [nameState, setNameState] = useState('default')
-  const [nameIsValid, setNameIsValid] = useState(false)
-  const [nameIsTouched, setNameIsTouched] = useState(false)
 
-  useEffect(()=>{
-      if (nameIsValid) console.log('name is Valid')
-  }, [nameIsValid])
+  const {
 
-  const nameChangeHandler = (e) => {
-    setNameState(e.target.value)
+    value: enteredName,
+
+    isValid: enteredNameIsValid,
+
+    hasError: nameInputHasError,
+
+    valueChangeHandler: nameChangedHandler,
+
+    inputBlurHandler: nameBlurHandler,
+
+    reset: resetNameInput
+
+  } = useInput(value => value.trim() !== '');
+
+
+
+  const [enteredEmail, setEnteredEmail] = useState('');
+
+  const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
+
+  const enteredEmailIsValid = enteredEmail.includes('@');
+
+  const enteredEmailIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
+
+  let formIsValid = false;
+
+
+  if (enteredNameIsValid && enteredEmailIsValid) {
+
+    formIsValid = true;
+
   }
 
-  const nameBlurHandler = (e) => {
-    setNameIsTouched(true);
 
-    if(nameState.trim() === '') {
-      setNameIsValid(false)
-      return;
-    }
+  const emailInputChangeHandler = (event) => {
 
-  }
+    setEnteredEmail(event.target.value);
+
+  };
+
+
+  const emailInputBlurHandler = (event) => {
+
+    setEnteredEmailTouched(true);
+
+  };
+
 
   const formSubmissionHandler = (event) => {
-    event.preventDefault()
-    setNameIsTouched(true);
 
-    if(nameState.trim() === '') {
-      setNameIsValid(false)
+    event.preventDefault();
+
+
+
+    if (!enteredNameIsValid) {
+
       return;
+
     }
-    setNameIsValid(true);
 
 
-    // .... traitement exemple: requete POST
+    console.log(enteredName);
 
-    
-    setNameState('');
-  }
+    // nameInputRef.current.value = ''; => NOT IDEAL, DON'T MANIPULATE THE DOM 
+
+    resetNameInput();
+
+    setEnteredEmail('');
+
+    setEnteredEmailTouched(false);
+
+  };
 
 
-  const nameInputIsinvalid = !nameIsValid &&  nameIsTouched;
-  const nameInputClasses = nameInputIsinvalid ? 'form-control invalid' : 'form-control';
+
+
+  const nameInputClasses = nameInputHasError
+
+    ? 'form-control invalid'
+
+    : 'form-control';
+
+
+
+
+  const emailInputClasses = enteredEmailIsInvalid
+
+    ? 'form-control invalid'
+
+    : 'form-control';
+
+
+
 
   return (
-    <form onSubmit={formSubmissionHandler}>
-      <div className={nameInputClasses}>
-        <label htmlFor='name'>Your Name</label>
-        <input 
-        value={nameState}
-        onChange={nameChangeHandler} 
-        onBlur={nameBlurHandler}
-        type='text' 
-        id='name' />
 
-        {nameInputIsinvalid && (
-          <p className='error-text'>Name cannot be empty</p>
+    <form onSubmit={formSubmissionHandler}>
+
+      <div className={nameInputClasses}>
+
+        <label htmlFor='name'>Your Name</label>
+
+        <input
+
+          type='text'
+
+          id='name'
+
+          onChange={nameChangedHandler}
+
+          onBlur={nameBlurHandler}
+
+          value={enteredName}
+
+        />
+
+        {nameInputHasError && (
+
+          <p className='error-text'>Name must not be empty.</p>
+
         )}
 
       </div>
-      <div className="form-actions">
-        <button >Submit</button>
+
+      <div className={emailInputClasses}>
+
+        <label htmlFor='email'>Your E-Mail</label>
+
+        <input
+
+          type='email'
+
+          id='email'
+
+          onChange={emailInputChangeHandler}
+
+          onBlur={emailInputBlurHandler}
+
+          value={enteredEmail}
+
+        />
+
+        {enteredEmailIsInvalid && (
+
+          <p className='error-text'>Please enter a valid email.</p>
+
+        )}
+
       </div>
 
-      {nameState}
+      <div className='form-actions'>
+
+        <button disabled={!formIsValid}>Submit</button>
+
+      </div>
+
     </form>
+
   );
+
 };
 
-export default SimpleInput;
+
+
+
+export default SimpleInput; 
