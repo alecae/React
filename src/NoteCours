@@ -1,0 +1,122 @@
+IMPORTANT :
+
+SERVEUR APPACH
+
+Scripting linux a connaitre
+
+versioning a étudier 
+
+Netlify = Services d'hébergement pour sites web
+
+Regex : expression avec un pattern pour verifier le code
+
+----------------------------------------------------------------
+
+javascript = language de scripting -------> Language de programmation (grace a node.js on peut faire du js serveur)
+
+Comment fonctionne le javascript ?
+-Il est éxecuter dans le navigateur 
+
+Coté serveur : une application tourne sur le serveur
+
+SPA = Single page application
+IDE = Environnement de développement intégré
+
+jsx == Html + javascript
+
+Git = Logiciel de gestion de version ou source Différent de github et gitlab
+
+SCM = source controle management
+
+un rooter(rooter dom) permet de simuler la navigation sur le logiciel
+
+Explication de gestion :
+
+-------------------------------------------------------------------
+
+Git stock des données il sauvegarde des snapshot. 
+
+
+git add : enregistre l'état actuel du projet
+git init : permet de créer un depot git
+git clone : permet de cloner un projet git
+git commit : permet de garder les changements du projet git
+Git push : permet de publies les changements locaux vers un dépôts
+git pull : met a jour les contenus local par le contenus d'un dépôt
+
+------------------------------------------------------
+
+pour créer une app : npx create-react-app mon-premier-composant
+
+
+
+Javascript manipule le dom (forme physique / rendu de la page WEB ) il injecte du code a l'aide de root
+
+Une fonction qui retourne du jsx --> deviens un composant react
+
+react dom: associé au différent composant React représentant l'interface
+
+
+avantage d'utiliser des fonctions plutot que des classes dans le code : une fonction est prédictible alors qu'une classse peut avoir un comportement très aléatoire (difficile a tester)
+
+Fonction pur : un argument en entrée --> elle aura toujours le meme resultat
+
+Tout composant react a une fonction jsx a la racine 
+
+Un module js = export 
+export default = 1 seul par fichier pour l'export nommé autant que l'on souhaite
+
+
+opérateur ... = étaler le contenue dans l'assorti (console log objet etc)
+
+Destructuration = détaché du data et pouvoir le reutiliser dans d'autres variables.
+
+props = permet de faire passe les infos dun composant parent a enfant
+
+composant enfant : this.props
+
+
+Promesse : (valeurs: succes ou failure) donne al valeur d'une fonction asynchrone
+
+call back sert a  initialiser la promesse (sucess et failure suffise a initalisé) 
+.then permet de traiter la reponse obtenu par la 
+
+UseInput = permet de simplifier la validation des formualires
+
+-----------------------------------------------------------------------
+
+Transpilation = Compilateur qui prend le code d'un langage et le compile dans un autre langage
+
+ne pas utiliser de class dans le projet juste a l'aide des fonction jsx
+
+
+application déployé grace  a github(ou explication de comment faire)
+
+------------------------------------------------------------------
+TP
+ site en react composé de 3 composants
+
+commentaire en  markdown
+
+grace  a lapi stocker dans une base de donnée
+
+App avec un store 
+
+faire un rooter(rooter dom) permet de simuler la navigation sur le logiciel
+
+Créer un hook custom
+
+authentification (1 root protégé)
+
+bibliothèque css tailwin etc
+
+NE PAS METTRE DE VAR
+
+Un menu / un tableau de bord (possibilité d'editer une ligne / arrivé sur une page de connexion (pas forcement inscription)
+
+Un css par composant 
+
+créer le template du rendu finale 
+
+
+
