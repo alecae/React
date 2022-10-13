@@ -5,8 +5,7 @@ import React, { useState } from "react";
 
 
 const Navbar = () => {
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
+  const [setClick] = useState(false);
   const closeMobileMenu = () => setClick(false);
   return (
     <div className={style.header}>
