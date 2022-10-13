@@ -9,7 +9,7 @@ export const APIProvider = ({ children }) => {
     const [weapons,setWeapons]= useState([]);
 
     const fetchWeapons = async () =>{
-        const response = await axios.get(`${baseURL}/weapons`);
+        const response = await axios.get(`${baseURL}/weapons?language=fr-FR`);
         console.log(response)
         setWeapons(response.data.data);
     }

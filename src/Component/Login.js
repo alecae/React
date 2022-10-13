@@ -22,7 +22,7 @@ function Login() {
       <div className="erreur">{errorMessages.message}</div>
     );
 
-  // JSX code for login form
+  // Login
   const renderForm = (
     <div className={style.loginform}>
       <form onSubmit={handleSubmit}>
