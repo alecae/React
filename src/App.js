@@ -5,16 +5,17 @@ import {
   Route,
 } from "react-router-dom";
 import Dashboard from './Component/Dashboard';
-import "./App.css"
+import "./App.css";
+import Weapons from './Weapon/Weapon';
 
 function App() {
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />}/>
-          <Route path="/Dashboard" element={<Dashboard />}>
-        </Route>
+        <Route path="/" element={<Login />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path='/Weapon' element={<Weapons />} />
       </Routes>
     </BrowserRouter>
   )

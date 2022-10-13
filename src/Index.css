@@ -1,0 +1,11 @@
+:root {
+    --weapons-weaponItem-weaponCard-background-color :#fff;
+    --weapons-weaponItem-weaponCard-box-shadow-color : rgba(0, 0, 0, 0.1);
+    --weapons-weaponItem-weaponCard-weaponHeading-text-color: #fe4456;
+    --weapons-weaponItem-weaponCard-text-color: #fff;
+    --weapons-weaponDamageCard-border-color: #ff4655;
+    --weapons-weaponItem-itemCard-box-shadow-color : rgba(0, 0, 0, 0.1);
+    --weapons-weaponItem-itemheading: #ff4655;
+    --weaponItem-weaponItem-itemCard-text-color: #fff;
+    --weapons-weaponItem-weaponTextColor:#000;
+}

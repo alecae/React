@@ -20,6 +20,9 @@ const Navbar = () => {
           <li className={style.option} onClick={closeMobileMenu}>
           <Link to="/">Login</Link>
           </li>
+          <li className={style.option} onClick={closeMobileMenu}>
+          <Link to="/Weapon">Weapons</Link>
+          </li>
         </ul>
       </div>
     </div>
